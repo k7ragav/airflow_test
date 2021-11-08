@@ -10,7 +10,7 @@ mycursor = mydb.cursor()
 
 date_check = str(datetime.now())
 
-sql = (f"INSERT INTO airflow_test (date) VALUES ('{date_check}');")
+sql = (f"INSERT INTO airflow_test_2 (date) VALUES ('{date_check}');")
 print(sql)
 mycursor.execute(sql)
 mydb.commit()

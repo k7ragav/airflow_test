@@ -4,11 +4,11 @@ from airflow.operators.bash import BashOperator
 from pendulum import timezone
 
 default_args = {
-    "owner": "airflow_test",
+    "owner": "airflow_test_2",
     "depends_on_past": False,
-    "email": ["k7ragav@gmail.com"],
-    "email_on_failure": True,
-    "email_on_retry": True,
+    # "email": ["k7ragav@gmail.com"],
+    # "email_on_failure": True,
+    # "email_on_retry": True,
     "retries": 1,
     "retry_delay": timedelta(minutes=15),
     "catchup": True,
@@ -21,13 +21,13 @@ intervals = {
 bash_command = "python {{ dag.dag_id }}/{{ task.task_id }}.py "
 
 with DAG(
-        "airflow_test_dag",
+        "airflow_test_dag_2",
         description="testing_airflow",
         default_args=default_args,
         schedule_interval=intervals["daily_at_6am"],
         start_date=datetime(2021, 11, 3, tzinfo=timezone("Europe/Amsterdam")),
 ) as airflow_test_dag:
     airflow_test_task = BashOperator(
-        task_id="airflow_test_dag",
+        task_id="airflow_test_dag_2",
         bash_command=bash_command,
     )
