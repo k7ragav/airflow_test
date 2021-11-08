@@ -18,7 +18,7 @@ intervals = {
     "daily_at_7am": "0 7 */1 * *",
     "daily_at_6am": "0 6 */1 * *",
 }
-bash_command = "python {{ dag.dag_id }}/{{ task.task_id }}.py "
+bash_command = "python {{ task.task_id }}.py "
 
 with DAG(
         "airflow_test_dag_2",
