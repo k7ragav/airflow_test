@@ -6,9 +6,9 @@ from pendulum import timezone
 default_args = {
     "owner": "airflow_test_2",
     "depends_on_past": False,
-    # "email": ["k7ragav@gmail.com"],
-    # "email_on_failure": True,
-    # "email_on_retry": True,
+    "email": ["k7ragav@gmail.com"],
+    "email_on_failure": True,
+    "email_on_success": True,
     "retries": 1,
     "retry_delay": timedelta(minutes=15),
     "catchup": True,
